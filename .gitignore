@@ -64,3 +64,17 @@ package-lock.json
 backend/celerybeat-schedule
 frontend/public/robots.txt
 frontend/public/sitemap*
+
+
+## prologue
+backend--env-configmap.yaml
+backend-core-deployment.yaml
+backend-core-service.yaml
+flower-deployment.yaml
+flower-service.yaml
+frontend--env-configmap.yaml
+frontend-deployment.yaml
+frontend-service.yaml
+redis-deployment.yaml
+redis-service.yaml
+worker-deployment.yaml

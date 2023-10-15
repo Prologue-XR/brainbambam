@@ -7,10 +7,13 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/frontend:v2
     container_name: web
     restart: always
     ports:
       - 3000:3000
+    labels:
+      kompose.service.type: LoadBalancer
 
   backend-core:
     env_file:
@@ -18,6 +21,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/backend-core:v2
     container_name: backend-core
     restart: always
     volumes:
@@ -28,6 +32,8 @@ services:
       - beat
     ports:
       - 5050:5050
+    labels:
+      kompose.service.type: LoadBalancer
 
   redis:
     image: redis:latest
@@ -42,6 +48,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/worker:v2
     container_name: worker
     command: celery -A celery_worker worker -l info
     restart: always
@@ -70,6 +77,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/flower:v2
     container_name: flower
     command: celery -A celery_worker flower -l info --port=5555
     restart: always
