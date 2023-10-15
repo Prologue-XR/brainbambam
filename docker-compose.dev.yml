@@ -7,6 +7,7 @@ services:
     build:
       context: frontend
       dockerfile: Dockerfile.dev
+    image: prologueacr.azurecr.io/frontend:v2
     volumes:
       - ./frontend/:/app
       - /app/node_modules
@@ -24,6 +25,7 @@ services:
       dockerfile: Dockerfile
       args:
         - DEV_MODE=true
+    image: prologueacr.azurecr.io/backend-core:v2
     container_name: backend-core
     restart: always
     volumes:
@@ -48,6 +50,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/worker:v2
     container_name: worker
     command: celery -A celery_worker worker -l info
     restart: always
@@ -62,6 +65,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile
+    image: prologueacr.azurecr.io/flower:v2
     container_name: flower
     command: celery -A celery_worker flower -l info --port=5555
     restart: always
