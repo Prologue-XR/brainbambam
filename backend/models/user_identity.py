@@ -8,3 +8,4 @@ class UserIdentity(BaseModel):
     id: UUID
     email: Optional[str] = None
     openai_api_key: Optional[str] = None
+    language_id: Optional[UUID] = None

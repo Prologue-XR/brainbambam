@@ -4,12 +4,12 @@ from uuid import UUID
 from models.settings import get_supabase_client
 from models.user_identity import UserIdentity
 from pydantic import BaseModel
-
 from repository.user_identity.create_user_identity import create_user_identity
 
 
 class UserUpdatableProperties(BaseModel):
     openai_api_key: Optional[str]
+    language_id: Optional[UUID]
 
 
 def update_user_properties(
