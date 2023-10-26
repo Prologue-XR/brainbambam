@@ -5,26 +5,19 @@ from fastapi import APIRouter, Depends, HTTPException
 from logger import get_logger
 from models import UserIdentity, UserUsage
 from models.brain_entity import PublicBrain
-from models.databases.supabase.brains import (
-    BrainQuestionRequest,
-    BrainUpdatableProperties,
-    CreateBrainProperties,
-)
-from repository.brain import (
-    create_brain,
-    create_brain_user,
-    get_brain_details,
-    get_default_user_brain_or_create_new,
-    get_question_context_from_brain,
-    get_user_brains,
-    get_user_default_brain,
-    set_as_default_brain_for_user,
-    update_brain_by_id,
-)
+from models.databases.supabase.brains import (BrainQuestionRequest,
+                                              BrainUpdatableProperties,
+                                              CreateBrainProperties)
+from repository.brain import (create_brain, create_brain_user,
+                              get_brain_details,
+                              get_default_user_brain_or_create_new,
+                              get_question_context_from_brain, get_user_brains,
+                              get_user_default_brain,
+                              set_as_default_brain_for_user,
+                              update_brain_by_id)
 from repository.brain.delete_brain_users import delete_brain_users
 from repository.brain.get_public_brains import get_public_brains
 from repository.prompt import delete_prompt_by_id, get_prompt_by_id
-
 from routes.authorizations.brain_authorization import has_brain_authorization
 from routes.authorizations.types import RoleEnum
 

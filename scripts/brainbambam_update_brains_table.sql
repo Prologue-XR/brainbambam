@@ -1,0 +1,2 @@
+ALTER TABLE brains
+ADD COLUMN voice_id UUID;

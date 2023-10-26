@@ -2,12 +2,11 @@ from typing import Any, List, Optional
 from uuid import UUID
 
 from logger import get_logger
+from models.databases.supabase.supabase import SupabaseDB
+from models.settings import get_supabase_client, get_supabase_db
 from pydantic import BaseModel
 from supabase.client import Client
 from utils.vectors import get_unique_files_from_vector_ids
-
-from models.databases.supabase.supabase import SupabaseDB
-from models.settings import get_supabase_client, get_supabase_db
 
 logger = get_logger(__name__)
 
@@ -23,6 +22,7 @@ class Brain(BaseModel):
     openai_api_key: Optional[str] = None
     files: List[Any] = []
     prompt_id: Optional[UUID] = None
+    voice_id: Optional[UUID] = None
 
     class Config:
         arbitrary_types_allowed = True
