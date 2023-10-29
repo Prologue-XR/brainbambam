@@ -4,6 +4,8 @@ from .brains_subscription_invitations import BrainSubscription
 from .chat import Chat, ChatHistory
 from .chats import ChatMessage, ChatQuestion
 from .files import File
+from .languages import Language
+from .voices import Voice
 from .prompt import Prompt, PromptStatusEnum
 from .settings import (BrainRateLimiting, BrainSettings, LLMSettings,
                        get_documents_vector_store, get_embeddings,

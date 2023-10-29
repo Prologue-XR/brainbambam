@@ -11,6 +11,8 @@ from models.databases.supabase import (
     Prompts,
     UserUsage,
     Vector,
+    LanguageRepository,
+    VoiceRepository
 )
 
 logger = get_logger(__name__)
@@ -28,6 +30,8 @@ class SupabaseDB(
     Prompts,
     Notifications,
     Knowledges,
+    LanguageRepository,
+    VoiceRepository
 ):
     def __init__(self, supabase_client):
         self.db = supabase_client
@@ -42,3 +46,5 @@ class SupabaseDB(
         Notifications.__init__(self, supabase_client)
         Knowledges.__init__(self, supabase_client)
         Onboarding.__init__(self, supabase_client)
+        LanguageRepository.__init__(self, supabase_client)
+        VoiceRepository.__init__(self, supabase_client)

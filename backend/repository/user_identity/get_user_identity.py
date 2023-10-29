@@ -1,7 +1,7 @@
 from multiprocessing import get_logger
 from uuid import UUID
 
-from models import get_supabase_client, UserIdentity
+from models import UserIdentity, get_supabase_client
 from repository.user_identity.create_user_identity import create_user_identity
 
 logger = get_logger()
@@ -21,5 +21,6 @@ def get_user_identity(user_id: UUID) -> UserIdentity:
 
     user_identity = response.data[0]
     openai_api_key = user_identity["openai_api_key"]
+    language_id = user_identity["language_id"]
 
-    return UserIdentity(id=user_id, openai_api_key=openai_api_key)
+    return UserIdentity(id=user_id, openai_api_key=openai_api_key, language_id=language_id)

@@ -271,3 +271,11 @@ class Repository(ABC):
     @abstractmethod
     def remove_user_onboarding(self, user_id: UUID):
         pass
+
+    @abstractmethod
+    def get_languages(self, user_id: UUID):
+        pass
+
+    @abstractmethod
+    def get_voices(self, user_id: UUID):
+        pass

@@ -19,6 +19,7 @@ from routes.chat_routes import chat_router
 from routes.crawl_routes import crawl_router
 from routes.explore_routes import explore_router
 from routes.knowledge_routes import knowledge_router
+from routes.language_routes import language_router
 from routes.misc_routes import misc_router
 from routes.notification_routes import notification_router
 from routes.onboarding_routes import onboarding_router
@@ -26,6 +27,7 @@ from routes.prompt_routes import prompt_router
 from routes.subscription_routes import subscription_router
 from routes.upload_routes import upload_router
 from routes.user_routes import user_router
+from routes.voice_routes import voice_router
 
 logger = get_logger(__name__)
 
@@ -67,6 +69,8 @@ app.include_router(subscription_router)
 app.include_router(prompt_router)
 app.include_router(notification_router)
 app.include_router(knowledge_router)
+app.include_router(language_router)
+app.include_router(voice_router)
 
 
 @app.exception_handler(HTTPException)
