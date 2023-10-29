@@ -67,6 +67,7 @@ frontend/public/sitemap*
 
 
 ## prologue
+kubernetes/*
 backend--env-configmap.yaml
 backend-core-deployment.yaml
 backend-core-service.yaml
