@@ -1,2 +1,6 @@
 ALTER TABLE brains
-ADD COLUMN voice_id UUID;
+ADD COLUMN voice_id UUID DEFAULT '23d84fea-e99b-42f2-b49b-706e007f7c83',
+ADD CONSTRAINT fk_voice_id
+FOREIGN KEY (voice_id)
+REFERENCES voices(voice_id)
+ON DELETE SET NULL;
