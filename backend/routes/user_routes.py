@@ -4,6 +4,7 @@ from auth import AuthBearer, get_current_user
 from fastapi import APIRouter, Depends, Request
 from models import Brain, UserIdentity, UserUsage
 from repository.brain import get_user_default_brain
+from repository.user_identity.get_user_identity import get_user_identity
 from repository.user_identity.update_user_properties import (
     UserUpdatableProperties, update_user_properties)
 
@@ -72,3 +73,15 @@ def update_user_identity_route(
     """
     return update_user_properties(current_user.id, user_identity_updatable_properties)
 
+@user_router.get(
+    "/user/identity",
+    dependencies=[Depends(AuthBearer())],
+    tags=["User"],
+)
+def get_user_identity_route(
+    current_user: UserIdentity = Depends(get_current_user),
+) -> UserIdentity:
+    """
+    Get user identity.
+    """
+    return get_user_identity(current_user.id)
