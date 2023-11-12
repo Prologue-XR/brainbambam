@@ -96,9 +96,9 @@ Replace `<principal-id>` with the output from the first command.
 1. Update the Docker image, tag it and push to the Azure Container Registry. Update the Kubernetes `Deployment` file with the new Docker image and tag and reapply the `Deployment`:
 
    ```bash
-   docker tag prologueacr.azurecr.io/frontend prologueacr.azurecr.io/frontend:v3
-   docker push prologueacr.azurecr.io/frontend:v3
-   <Update the frontend-deployment.yaml to use frontend:v3 and reapply the Deployment>
+   docker tag prologueacr.azurecr.io/frontend prologueacr.azurecr.io/frontend:v4
+   docker push prologueacr.azurecr.io/frontend:v4
+   <Update the frontend-deployment.yaml to use frontend:v4 and reapply the Deployment>
    kubectl apply -f frontend-deployment.yaml
    ```
 
