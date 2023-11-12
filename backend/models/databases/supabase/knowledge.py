@@ -12,6 +12,7 @@ class CreateKnowledgeProperties(BaseModel):
     file_name: Optional[str] = None
     url: Optional[str] = None
     extension: str = "txt"
+    characters_count: Optional[int] = 0
 
     def dict(self, *args, **kwargs):
         knowledge_dict = super().dict(*args, **kwargs)

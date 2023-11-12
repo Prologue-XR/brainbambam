@@ -19,7 +19,7 @@ from routes.authorizations.brain_authorization import (
     RoleEnum,
     validate_brain_authorization,
 )
-from utils.file import convert_bytes, get_file_size
+from utils.file import convert_bytes, get_file_size, count_characters
 
 logger = get_logger(__name__)
 upload_router = APIRouter()
@@ -80,6 +80,22 @@ async def upload_file(
         openai_api_key = get_user_identity(current_user.id).openai_api_key
 
     file_content = await uploadFile.read()
+    file_extension = os.path.splitext(uploadFile.filename)[-1].lower()
+
+    # Check if the file is a text file and count characters
+    is_text_file = file_extension in [
+        ".txt",
+        ".csv",
+        ".md",
+        ".markdown",
+        ".html",
+        ".py",
+        ".ipynb",
+    ]
+    characters_count = 0
+    if is_text_file:
+        characters_count = count_characters(file_content)
+        # You can now use `num_characters` for further logic
     filename_with_brain_id = str(brain_id) + "/" + str(uploadFile.filename)
 
     try:
@@ -103,6 +119,7 @@ async def upload_file(
         extension=os.path.splitext(
             uploadFile.filename  # pyright: ignore reportPrivateUsage=none
         )[-1].lower(),
+        characters_count=characters_count,
     )
 
     added_knowledge = add_knowledge(knowledge_to_add)

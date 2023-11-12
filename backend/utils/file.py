@@ -28,6 +28,10 @@ def get_file_size(file: UploadFile):
     return file_size
 
 
+def count_characters(file_content: bytes) -> int:
+    return len(file_content.decode("utf-8"))
+
+
 def compute_sha1_from_file(file_path):
     with open(file_path, "rb") as file:
         bytes = file.read()
