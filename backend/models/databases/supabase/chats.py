@@ -66,6 +66,17 @@ class Chats(Repository):
 
         return reponse
 
+    def get_message_by_id(self, chat_id: str, message_id: str):
+        response = (
+            self.db.from_("chat_history")
+            .select("*")
+            .filter("chat_id", "eq", chat_id)
+            .filter("message_id", "eq", message_id)
+            .execute()
+        )
+
+        return response
+
     def get_user_chats(self, user_id: str):
         response = (
             self.db.from_("chats")

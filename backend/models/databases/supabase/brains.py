@@ -11,7 +11,7 @@ logger = get_logger(__name__)
 
 class CreateBrainProperties(BaseModel):
     name: Optional[str] = "Default brain"
-    description: Optional[str] = "This is a description"
+    description: Optional[str] = ""
     status: Optional[str] = "private"
     model: Optional[str]
     temperature: Optional[float] = 0.0
@@ -54,7 +54,10 @@ class Brain(Repository):
         self.db = supabase_client
 
     def create_brain(self, brain: CreateBrainProperties):
-        response = (self.db.table("brains").insert(brain.dict())).execute()
+        brain_dict = brain.dict()
+        if brain_dict.get("voice_id") is None:
+            del brain_dict["voice_id"]
+        response = (self.db.table("brains").insert(brain_dict)).execute()
         return BrainEntity(**response.data[0])
 
     def get_user_brains(self, user_id) -> list[MinimalBrainEntity]:

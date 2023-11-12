@@ -147,6 +147,10 @@ class Repository(ABC):
         pass
 
     @abstractmethod
+    def get_message_by_id(self, chat_id: str, message_id: str):
+        pass
+
+    @abstractmethod
     def get_user_chats(self, user_id: str):
         pass
 
@@ -274,8 +278,8 @@ class Repository(ABC):
 
     @abstractmethod
     def remove_onboarding_more_than_x_days(self, days: int):
-    	pass
-    
+        pass
+
     @abstractmethod
     def get_languages(self, user_id: UUID):
         pass

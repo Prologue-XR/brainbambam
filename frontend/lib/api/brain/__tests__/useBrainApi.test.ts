@@ -64,7 +64,7 @@ describe("useBrainApi", () => {
 
     const brain: CreateBrainInput = {
       name: "Test Brain",
-      description: "This is a description",
+      description: "",
       status: "public",
       model: "gpt-3.5-turbo",
       temperature: 0.0,
@@ -215,7 +215,7 @@ describe("useBrainApi", () => {
     const brainId = "123";
     const brain: UpdateBrainInput = {
       name: "Test Brain",
-      description: "This is a description",
+      description: "",
       status: "public",
       model: "gpt-3.5-turbo",
       temperature: 0.0,

@@ -14,7 +14,7 @@ logger = get_logger(__name__)
 class Brain(BaseModel):
     id: Optional[UUID] = None
     name: Optional[str] = "Default brain"
-    description: Optional[str] = "This is a description"
+    description: Optional[str] = ""
     status: Optional[str] = "private"
     model: Optional[str] = None
     temperature: Optional[float] = 0.0

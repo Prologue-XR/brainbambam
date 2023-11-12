@@ -7,7 +7,7 @@ To create a brain, you need to make a POST request to the `/brains/` endpoint. T
 
 - `name` (Optional): The name of the brain. If not provided, it defaults to "Default brain."
 
-- `description` (Optional): A description of the brain. If not provided, it defaults to "This is a description."
+- `description` (Optional): A description of the brain. If not provided, it defaults to ""
 
 - `status` (Optional): The status of the brain, which can be "private" or another value of your choice. If not provided, it defaults to "private."
 

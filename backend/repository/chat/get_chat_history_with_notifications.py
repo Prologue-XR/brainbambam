@@ -55,3 +55,18 @@ def get_chat_history_with_notifications(
     chat_history = get_chat_history(str(chat_id))
     chat_notifications = get_chat_notifications(chat_id)
     return merge_chat_history_and_notifications(chat_history, chat_notifications)
+
+
+def get_specific_chat_message_with_notification(
+    chat_id: UUID, message_id: UUID
+) -> ChatItem:
+    chat_history = get_chat_history(str(chat_id))
+    chat_notifications = get_chat_notifications(chat_id)
+    chat_history_and_notifications = merge_chat_history_and_notifications(
+        chat_history, chat_notifications
+    )
+    for item in chat_history_and_notifications:
+        if item.item_type == ChatItemType.MESSAGE:
+            if item.body.message_id == message_id:
+                return item
+    return None

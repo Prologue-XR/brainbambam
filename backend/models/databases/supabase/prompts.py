@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from uuid import UUID
 
 from fastapi import HTTPException
@@ -13,6 +13,11 @@ class CreatePromptProperties(BaseModel):
     title: str
     content: str
     status: PromptStatusEnum = PromptStatusEnum.private
+    initial_message: Optional[str] = "How can I help you today?"
+    question_suggestions: Optional[List[str]] = [
+        "Tell me about BrainBamBam",
+        "What is BrainBamBam?",
+    ]
 
 
 class PromptUpdatableProperties(BaseModel):
@@ -21,6 +26,8 @@ class PromptUpdatableProperties(BaseModel):
     title: Optional[str]
     content: Optional[str]
     status: Optional[PromptStatusEnum]
+    initial_message: Optional[str]
+    question_suggestions: Optional[List[str]]
 
 
 class DeletePromptResponse(BaseModel):

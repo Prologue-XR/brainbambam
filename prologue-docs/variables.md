@@ -8,10 +8,10 @@ This document outlines the components and services created for our Azure contain
 ### Azure Container Registry (ACR)
 - **Name:** prologueacr
 - **Created Docker Images:**
-  - prologueacr.azurecr.io/worker:v2
-  - prologueacr.azurecr.io/frontend:v2
-  - prologueacr.azurecr.io/backend-core:v2
-  - prologueacr.azurecr.io/flower:v2
+  - prologueacr.azurecr.io/worker:v3
+  - prologueacr.azurecr.io/frontend:v3
+  - prologueacr.azurecr.io/backend-core:v3
+  - prologueacr.azurecr.io/flower:v3
 
 ### Azure Kubernetes Service (AKS)
 - **Cluster Name:** prologueaks

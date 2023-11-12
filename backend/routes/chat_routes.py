@@ -30,6 +30,7 @@ from repository.chat.add_question_and_answer import add_question_and_answer
 from repository.chat.get_chat_history_with_notifications import (
     ChatItem,
     get_chat_history_with_notifications,
+    get_specific_chat_message_with_notification,
 )
 from repository.notification.remove_chat_notifications import remove_chat_notifications
 from routes.chat.factory import get_chat_strategy
@@ -278,6 +279,14 @@ async def get_chat_history_handler(
 ) -> List[ChatItem]:
     # TODO: RBAC with current_user
     return get_chat_history_with_notifications(chat_id)
+
+
+# get chat history
+@chat_router.get(
+    "/chat/{chat_id}/{message_id}", dependencies=[Depends(AuthBearer())], tags=["Chat"]
+)
+async def get_specific_chat_message(chat_id: UUID, message_id: UUID) -> ChatItem:
+    return get_specific_chat_message_with_notification(chat_id, message_id)
 
 
 @chat_router.post(
