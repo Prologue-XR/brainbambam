@@ -9,12 +9,14 @@ class Chat:
     user_id: str
     creation_time: str
     chat_name: str
+    last_update: str
 
     def __init__(self, chat_dict: dict):
         self.chat_id = chat_dict.get("chat_id", "")
         self.user_id = chat_dict.get("user_id", "")
         self.creation_time = chat_dict.get("creation_time", "")
         self.chat_name = chat_dict.get("chat_name", "")
+        self.last_update = chat_dict.get("last_update", "")
 
 
 @dataclass
