@@ -50,7 +50,7 @@ class UserUsage(Repository):
         except Exception as e:
             logger.error("Error while checking if user is a premium user")
             logger.error(e)
-            return False
+            return True
 
         return len(matching_customers) > 0
 

@@ -16,12 +16,16 @@ class GetChatHistoryOutput(BaseModel):
     message_time: str
     prompt_title: Optional[str] | None
     brain_name: Optional[str] | None
+    brain_id: Optional[str] | None
 
     def dict(self, *args, **kwargs):
         chat_history = super().dict(*args, **kwargs)
         chat_history["chat_id"] = str(chat_history.get("chat_id"))
         chat_history["message_id"] = str(chat_history.get("message_id"))
-
+        try:
+            chat_history["brain_id"] = str(chat_history.get("brain_id"))
+        except ValueError:
+            pass
         return chat_history
 
 

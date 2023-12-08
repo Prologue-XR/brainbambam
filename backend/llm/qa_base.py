@@ -251,6 +251,7 @@ class QABaseBrainPicking(BaseModel):
                 if self.prompt_to_use
                 else None,
                 "brain_name": brain.name if brain else None,
+                "brain_id": question.brain_id if question.brain_id else None,
                 "message_id": new_chat.message_id,
             }
         )
@@ -339,6 +340,7 @@ class QABaseBrainPicking(BaseModel):
                 if self.prompt_to_use
                 else None,
                 "brain_name": brain.name if brain else None,
+                "brain_id": question.brain_id if question.brain_id else None,
             }
         )
 

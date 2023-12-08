@@ -10,6 +10,7 @@ class Chat:
     creation_time: str
     chat_name: str
     last_update: str
+    brain_id: str
 
     def __init__(self, chat_dict: dict):
         self.chat_id = chat_dict.get("chat_id", "")
@@ -17,6 +18,7 @@ class Chat:
         self.creation_time = chat_dict.get("creation_time", "")
         self.chat_name = chat_dict.get("chat_name", "")
         self.last_update = chat_dict.get("last_update", "")
+        self.brain_id = chat_dict.get("brain_id")
 
 
 @dataclass
