@@ -12,10 +12,12 @@ logger = get_logger(__name__)
 class CreateChatProperties:
     name: str
     brain_id: Optional[str]
+    voice_id: Optional[str]
 
-    def __init__(self, name: str, brain_id: str = None):
+    def __init__(self, name: str, brain_id: str = None, voice_id: str = None):
         self.name = name
         self.brain_id = brain_id
+        self.voice_id = voice_id
 
 
 def create_chat(user_id: UUID, chat_data: CreateChatProperties) -> Chat:
@@ -29,6 +31,7 @@ def create_chat(user_id: UUID, chat_data: CreateChatProperties) -> Chat:
         "user_id": str(user_id),
         "chat_name": chat_data.name,
         "brain_id": str(chat_data.brain_id) if chat_data.brain_id else None,
+        "voice_id": str(chat_data.voice_id) if chat_data.voice_id else '23d84fea-e99b-42f2-b49b-706e007f7c83',
     }
     insert_response = supabase_db.create_chat(new_chat)
     logger.info(f"Insert response {insert_response.data}")

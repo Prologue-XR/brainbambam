@@ -80,7 +80,7 @@ class Chats(Repository):
     def get_user_chats(self, user_id: str):
         response = (
             self.db.from_("chats")
-            .select("chat_id,user_id,creation_time,chat_name,last_update,brain_id")
+            .select("chat_id,user_id,creation_time,chat_name,last_update,brain_id,voice_id")
             .filter("user_id", "eq", user_id)
             .order("creation_time", desc=False)
             .execute()

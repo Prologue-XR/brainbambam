@@ -1,0 +1,2 @@
+ALTER TABLE chats
+ADD COLUMN IF NOT EXISTS voice_id UUID DEFAULT '23d84fea-e99b-42f2-b49b-706e007f7c83' REFERENCES voices(voice_id);
