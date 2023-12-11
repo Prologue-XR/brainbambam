@@ -30,6 +30,7 @@ from routes.upload_routes import upload_router
 from routes.user_routes import user_router
 from routes.contact_routes import router as contact_router
 from routes.voice_routes import voice_router
+from routes.stripe_routes import stripe_router
 
 logger = get_logger(__name__)
 
@@ -75,6 +76,7 @@ app.include_router(knowledge_router)
 app.include_router(contact_router)
 app.include_router(language_router)
 app.include_router(voice_router)
+app.include_router(stripe_router)
 
 
 @app.exception_handler(HTTPException)

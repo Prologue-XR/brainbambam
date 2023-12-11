@@ -1,4 +1,5 @@
 SUPABASE_URL=<change-me>
+STRIPE_API_KEY=<change-me>
 SUPABASE_SERVICE_KEY=<change-me>
 PG_DATABASE_URL=notimplementedyet
 OPENAI_API_KEY=<change-me>
