@@ -17,7 +17,7 @@ class CreateBrainProperties(BaseModel):
     temperature: Optional[float] = 0.0
     max_tokens: Optional[int] = 256
     openai_api_key: Optional[str] = None
-    prompt_id: Optional[UUID] = None
+    prompt_id: Optional[UUID] = "9ccc0e42-308d-448f-a7a3-ac8e7e1b9bfd"
     voice_id: Optional[str] = "23d84fea-e99b-42f2-b49b-706e007f7c83"
 
     def dict(self, *args, **kwargs):
