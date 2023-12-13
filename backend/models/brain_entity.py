@@ -15,7 +15,8 @@ class BrainEntity(BaseModel):
     openai_api_key: Optional[str]
     status: Optional[str]
     prompt_id: Optional[UUID]
-    voice_id: Optional[UUID]
+    voice_id: Optional[str]
+    visual_id: Optional[str]
     last_update: str
 
     @property

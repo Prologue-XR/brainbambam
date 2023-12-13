@@ -18,7 +18,9 @@ class CreateBrainProperties(BaseModel):
     max_tokens: Optional[int] = 256
     openai_api_key: Optional[str] = None
     prompt_id: Optional[UUID] = "9ccc0e42-308d-448f-a7a3-ac8e7e1b9bfd"
-    voice_id: Optional[str] = "23d84fea-e99b-42f2-b49b-706e007f7c83"
+    voice_id: Optional[str] = "pNInz6obpgDQGcFmaJgB"
+    visual_id: Optional[str] = "001"
+
 
     def dict(self, *args, **kwargs):
         brain_dict = super().dict(*args, **kwargs)
@@ -37,6 +39,7 @@ class BrainUpdatableProperties(BaseModel):
     status: Optional[str]
     prompt_id: Optional[UUID]
     voice_id: Optional[str]
+    visual_id: Optional[str]
 
     def dict(self, *args, **kwargs):
         brain_dict = super().dict(*args, **kwargs)
